@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah Mitchell | Registered Nurse Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nurse: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            calm: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(14, 165, 233, 0.15) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .timeline-line {
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #bae6fd, #0ea5e9);
+    }
+  </style>
+</head>
+<body class="bg-calm-50 text-calm-800 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-calm-200 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-nurse-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-heartbeat text-white text-sm"></i>
+          </div>
+          <span class="font-semibold text-calm-800 text-lg">Sarah Mitchell</span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-calm-600 hover:text-nurse-600 transition-colors text-sm font-medium">About</a>
+          <a href="#experience" class="text-calm-600 hover:text-nurse-600 transition-colors text-sm font-medium">Experience</a>
+          <a href="#qualifications" class="text-calm-600 hover:text-nurse-600 transition-colors text-sm font-medium">Qualifications</a>
+          <a href="#skills" class="text-calm-600 hover:text-nurse-600 transition-colors text-sm font-medium">Skills</a>
+          <a href="#booking" class="text-calm-600 hover:text-nurse-600 transition-colors text-sm font-medium">Booking</a>
+          <a href="#contact" class="bg-nurse-600 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-nurse-700 transition-colors shadow-lg shadow-nurse-500/30">Get in Touch</a>
+        </div>
+
+        <button class="md:hidden text-calm-600 hover:text-nurse-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-calm-200">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#about" class="block px-3 py-2 text-calm-600 hover:text-nurse-600 hover:bg-nurse-50 rounded-lg">About</a>
+        <a href="#experience" class="block px-3 py-2 text-calm-600 hover:text-nurse-600 hover:bg-nurse-50 rounded-lg">Experience</a>
+        <a href="#qualifications" class="block px-3 py-2 text-calm-600 hover:text-nurse-600 hover:bg-nurse-50 rounded-lg">Qualifications</a>
+        <a href="#skills" class="block px-3 py-2 text-calm-600 hover:text-nurse-600 hover:bg-nurse-50 rounded-lg">Skills</a>
+        <a href="#booking" class="block px-3 py-2 text-calm-600 hover:text-nurse-600 hover:bg-nurse-50 rounded-lg">Booking</a>
+        <a href="#contact" class="block px-3 py-2 text-nurse-600 font-medium">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-nurse-100 text-nurse-700 rounded-full text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-nurse-500 rounded-full animate-pulse"></span>
+            Available for new opportunities
+          </div>
+          <h1 class="text-4xl lg:text-6xl font-bold text-calm-900 leading-tight mb-6">
+            Compassionate Care, <br>
+            <span class="gradient-text">Professional Excellence</span>
+          </h1>
+          <p class="text-lg text-calm-600 mb-8 leading-relaxed max-w-lg">
+            Registered Nurse with 8+ years of experience in critical care and patient advocacy. Dedicated to delivering evidence-based, patient-centred healthcare across the NHS and private sectors in the United Kingdom.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#booking" class="bg-nurse-600 text-white px-8 py-3.5 rounded-full font-medium hover:bg-nurse-700 transition-all shadow-xl shadow-nurse-500/30 hover:shadow-nurse-500/50">
+              Book a Session
+            </a>
+            <a href="#experience" class="bg-white text-nurse-700 border-2 border-nurse-200 px-8 py-3.5 rounded-full font-medium hover:border-nurse-400 hover:bg-nurse-50 transition-all">
+              View Experience
+            </a>
+          </div>
+          
+          <div class="mt-10 flex items-center gap-6 text-sm text-calm-500">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-map-marker-alt text-nurse-500"></i>
+              <span>London, UK</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-shield-alt text-nurse-500"></i>
+              <span>NMC Registered</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-certificate text-nurse-500"></i>
+              <span>Band 6</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute inset-0 bg-nurse-500 rounded-3xl blur-3xl opacity-20 transform rotate-6"></div>
+            <div class="relative bg-white p-3 rounded-3xl shadow-2xl">
+              <img src="/images/nurse.png" alt="Professional Nurse Portrait" class="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover rounded-2xl">
+              <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg border border-calm-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 bg-nurse-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-award text-nurse-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-calm-900">8+ Years</div>
+                    <div class="text-sm text-calm-500">Clinical Experience</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white border-y border-calm-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-nurse-600 mb-1">2,500+</div>
+          <div class="text-sm text-calm-500">Patients Cared For</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-nurse-600 mb-1">99.2%</div>
+          <div class="text-sm text-calm-500">Patient Satisfaction</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-nurse-600 mb-1">12</div>
+          <div class="text-sm text-calm-500">Specialist Certifications</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-nurse-600 mb-1">3</div>
+          <div class="text-sm text-calm-500">NHS Trusts Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=500&fit=crop" alt="Hospital Environment" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
+            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=500&fit=crop" alt="Patient Care" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+          </div>
+          <div class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-nurse-100 rounded-3xl rotate-3"></div>
+        </div>
+        
+        <div>
+          <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">About Me</div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-6">A Career Dedicated to <span class="text-nurse-600">Healing & Hope</span></h2>
+          <p class="text-calm-600 leading-relaxed mb-6">
+            I am a compassionate and highly skilled Registered Nurse (RN) currently practicing in London, United Kingdom. With extensive experience across medical-surgical, critical care, and community nursing settings, I bring a holistic approach to patient care that combines clinical excellence with genuine empathy.
+          </p>
+          <p class="text-calm-600 leading-relaxed mb-8">
+            My philosophy centres on treating every patient with dignity, respect, and individualized attention. I am committed to continuous professional development and staying at the forefront of evidence-based nursing practice within the NHS framework.
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 bg-nurse-50 rounded-xl">
+              <div class="w-10 h-10 bg-nurse-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-hand-holding-medical text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Patient Advocacy</div>
+                <div class="text-sm text-calm-500 mt-1">Ensuring voice and choice for every patient</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-nurse-50 rounded-xl">
+              <div class="w-10 h-10 bg-nurse-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-user-nurse text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Clinical Leadership</div>
+                <div class="text-sm text-calm-500 mt-1">Mentoring junior nursing staff</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">Career Journey</div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-4">Professional Experience</h2>
+        <p class="text-calm-600">A progressive career built on dedication, continuous learning, and exceptional patient outcomes across diverse healthcare settings.</p>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto">
+        <div class="timeline-line hidden md:block"></div>
+        
+        <!-- Experience Item 1 -->
+        <div class="relative mb-12 md:pl-16">
+          <div class="hidden md:flex absolute left-0 top-0 w-12 h-12 bg-nurse-600 rounded-full items-center justify-center border-4 border-white shadow-lg z-10">
+            <i class="fas fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-calm-50 rounded-2xl p-6 lg:p-8 card-hover border border-calm-100">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span class="bg-nurse-100 text-nurse-700 px-3 py-1 rounded-full text-xs font-semibold">Current</span>
+              <span class="text-calm-400 text-sm">Jan 2021 - Present</span>
+            </div>
+            <h3 class="text-xl font-bold text-calm-900 mb-1">Senior Staff Nurse - Band 6</h3>
+            <div class="text-nurse-600 font-medium mb-3">St Thomas' Hospital, Guy's & St Thomas' NHS Foundation Trust</div>
+            <p class="text-calm-600 text-sm leading-relaxed mb-4">
+              Lead nurse for a 24-bed acute medical unit. Responsible for clinical assessments, care planning, and coordinating multidisciplinary teams. Supervise and mentor Band 5 nurses and nursing students, ensuring compliance with NMC standards and NHS protocols.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Acute Medicine</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Mentorship</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Care Planning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 2 -->
+        <div class="relative mb-12 md:pl-16">
+          <div class="hidden md:flex absolute left-0 top-0 w-12 h-12 bg-nurse-500 rounded-full items-center justify-center border-4 border-white shadow-lg z-10">
+            <i class="fas fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-calm-50 rounded-2xl p-6 lg:p-8 card-hover border border-calm-100">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span class="text-calm-400 text-sm">Mar 2018 - Dec 2020</span>
+            </div>
+            <h3 class="text-xl font-bold text-calm-900 mb-1">Staff Nurse - Band 5</h3>
+            <div class="text-nurse-600 font-medium mb-3">Royal Free London NHS Foundation Trust</div>
+            <p class="text-calm-600 text-sm leading-relaxed mb-4">
+              Delivered high-quality nursing care in a busy surgical ward. Managed post-operative care, wound dressings, IV therapy, and discharge planning. Participated in quality improvement initiatives that reduced patient falls by 15%.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Surgical Nursing</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Wound Care</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">IV Therapy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 3 -->
+        <div class="relative md:pl-16">
+          <div class="hidden md:flex absolute left-0 top-0 w-12 h-12 bg-nurse-400 rounded-full items-center justify-center border-4 border-white shadow-lg z-10">
+            <i class="fas fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-calm-50 rounded-2xl p-6 lg:p-8 card-hover border border-calm-100">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span class="text-calm-400 text-sm">Aug 2016 - Feb 2018</span>
+            </div>
+            <h3 class="text-xl font-bold text-calm-900 mb-1">Newly Qualified Nurse - Band 5</h3>
+            <div class="text-nurse-600 font-medium mb-3">University College London Hospitals NHS Foundation Trust</div>
+            <p class="text-calm-600 text-sm leading-relaxed mb-4">
+              Completed preceptorship programme in general medicine. Developed foundational skills in clinical assessment, medication administration, and patient communication. Rotated through cardiology, respiratory, and elderly care wards.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">General Medicine</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Preceptorship</span>
+              <span class="px-3 py-1 bg-white border border-calm-200 rounded-lg text-xs text-calm-600">Rotation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualifications Section -->
+  <section id="qualifications" class="py-20 lg:py-28 bg-nurse-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-nurse-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-nurse-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-nurse-300 font-semibold text-sm uppercase tracking-wider mb-3">Education & CPD</div>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Qualifications & Certifications</h2>
+        <p class="text-nurse-200">Committed to lifelong learning and maintaining the highest standards of professional practice.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Qualification Card 1 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-graduation-cap text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">BSc (Hons) Adult Nursing</h3>
+          <div class="text-nurse-300 text-sm mb-3">King's College London, 2016</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">First Class Honours. Specialized modules in critical care, leadership, and public health nursing.</p>
+        </div>
+
+        <!-- Qualification Card 2 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-certificate text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">NMC Registration</h3>
+          <div class="text-nurse-300 text-sm mb-3">Nursing & Midwifery Council</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">Active PIN with full registration as an Adult Nurse. Revalidation completed 2024.</p>
+        </div>
+
+        <!-- Qualification Card 3 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-heartbeat text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">ALS Provider</h3>
+          <div class="text-nurse-300 text-sm mb-3">Resuscitation Council UK, 2023</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">Advanced Life Support certification for adult cardiac arrest management and team leadership.</p>
+        </div>
+
+        <!-- Qualification Card 4 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-syringe text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">IV Therapy & Phlebotomy</h3>
+          <div class="text-nurse-300 text-sm mb-3">Accredited Training, 2022</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">Advanced intravenous therapy, cannulation, and venepuncture skills certification.</p>
+        </div>
+
+        <!-- Qualification Card 5 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-brain text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Mental Health First Aid</h3>
+          <div class="text-nurse-300 text-sm mb-3">MHFA England, 2023</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">Recognising and supporting colleagues and patients experiencing mental health challenges.</p>
+        </div>
+
+        <!-- Qualification Card 6 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 card-hover">
+          <div class="w-12 h-12 bg-nurse-500/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-chalkboard-teacher text-nurse-300 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Mentorship Qualification</h3>
+          <div class="text-nurse-300 text-sm mb-3">NMC Approved Programme, 2022</div>
+          <p class="text-nurse-200 text-sm leading-relaxed">Qualified to mentor and assess nursing students and junior staff in clinical practice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">Expertise</div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-4">Clinical Skills & Competencies</h2>
+        <p class="text-calm-600">A comprehensive skill set developed through years of hands-on clinical practice and continuous professional development.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Skill Category 1 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-stethoscope text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Clinical Assessment</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Systematic physical examination
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              NEWS2 & early warning scores
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              A-E assessment & triage
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              ECG interpretation basics
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill Category 2 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-pills text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Medication Management</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Safe drug administration (6 Rs)
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              IV drug calculations & infusion
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Controlled drug management
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Patient education on medications
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill Category 3 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-procedures text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Technical Procedures</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Catheterisation & stoma care
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Wound assessment & dressing
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              NG tube insertion & care
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Tracheostomy care
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill Category 4 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-users text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Communication</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              SBAR handover technique
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Breaking bad news sensitively
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              MDT collaboration & liaison
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Documentation & record keeping
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill Category 5 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-laptop-medical text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Digital & Systems</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              EPMA & electronic prescribing
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              EPR & patient record systems
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              RiskMan & incident reporting
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Microsoft Office & data entry
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill Category 6 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-calm-100 card-hover">
+          <div class="w-14 h-14 bg-nurse-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-hands-helping text-nurse-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-calm-900 mb-4">Leadership</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Shift coordination & delegation
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Student nurse mentorship
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Quality improvement projects
+            </li>
+            <li class="flex items-center gap-3 text-sm text-calm-600">
+              <i class="fas fa-check-circle text-nurse-500 text-xs"></i>
+              Conflict resolution & de-escalation
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 lg:py-28 bg-nurse-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">Testimonials</div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-4">What Colleagues Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-calm-100">
+          <div class="flex gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-calm-600 mb-6 italic">"Sarah's clinical knowledge is exceptional, but it's her kindness that sets her apart. She has an innate ability to calm anxious patients and families during the most stressful times."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-nurse-100 rounded-full flex items-center justify-center text-nurse-700 font-bold text-sm">DW</div>
+            <div>
+              <div class="font-semibold text-calm-900 text-sm">Dr. William Davies</div>
+              <div class="text-xs text-calm-500">Consultant Physician</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-calm-100">
+          <div class="flex gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-calm-600 mb-6 italic">"An outstanding mentor who takes time to explain complex care rationales. Sarah helped me develop confidence in my first year as a registered nurse. Truly inspiring."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-nurse-100 rounded-full flex items-center justify-center text-nurse-700 font-bold text-sm">JL</div>
+            <div>
+              <div class="font-semibold text-calm-900 text-sm">James Liu</div>
+              <div class="text-xs text-calm-500">Band 5 Staff Nurse</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-calm-100">
+          <div class="flex gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-calm-600 mb-6 italic">"Sarah led our ward's QI project on reducing pressure ulcers with remarkable dedication. Her attention to evidence-based practice improved our patient outcomes significantly."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-nurse-100 rounded-full flex items-center justify-center text-nurse-700 font-bold text-sm">MP</div>
+            <div>
+              <div class="font-semibold text-calm-900 text-sm">Matron Patricia Okafor</div>
+              <div class="text-xs text-calm-500">Ward Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">Appointments</div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-6">Book a Session</h2>
+          <p class="text-calm-600 mb-8 leading-relaxed">
+            Schedule a one-to-one consultation, mentoring session, or health advisory call at a time that works for you. I offer both virtual and in-person appointments for flexible, accessible care.
+          </p>
+
+          <div class="space-y-5">
+            <div class="flex items-start gap-4 p-4 bg-nurse-50 rounded-xl border border-nurse-100">
+              <div class="w-12 h-12 bg-nurse-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-user-nurse text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Clinical Mentoring</div>
+                <div class="text-sm text-calm-500 mt-1">Guidance for newly qualified nurses and students preparing for OSCEs or band progression.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-nurse-50 rounded-xl border border-nurse-100">
+              <div class="w-12 h-12 bg-nurse-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-heartbeat text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Health Advisory Call</div>
+                <div class="text-sm text-calm-500 mt-1">General health advice, care navigation support, and post-discharge wellness planning.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-nurse-50 rounded-xl border border-nurse-100">
+              <div class="w-12 h-12 bg-nurse-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-briefcase text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Career Consultation</div>
+                <div class="text-sm text-calm-500 mt-1">CV review, interview preparation, and career pathway planning within the NHS and beyond.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex items-center gap-3 text-sm text-calm-500">
+            <i class="fas fa-video text-nurse-500"></i>
+            <span>Microsoft Teams, Zoom, or Telephone</span>
+            <span class="w-1 h-1 bg-calm-300 rounded-full"></span>
+            <i class="fas fa-calendar-check text-nurse-500"></i>
+            <span>48-hour confirmation</span>
+          </div>
+        </div>
+
+        <div class="bg-calm-50 rounded-3xl p-8 lg:p-10 border border-calm-200">
+          <form class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you for your booking request! I will confirm your appointment within 48 hours.');">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-calm-700 mb-2">First Name</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="Jane">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-calm-700 mb-2">Last Name</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="Doe">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-calm-700 mb-2">Email Address</label>
+              <input type="email" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="jane@example.com">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-calm-700 mb-2">Session Type</label>
+              <select class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+                <option>Clinical Mentoring (60 min)</option>
+                <option>Health Advisory Call (30 min)</option>
+                <option>Career Consultation (45 min)</option>
+              </select>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-calm-700 mb-2">Preferred Date</label>
+                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-calm-700 mb-2">Preferred Time</label>
+                <select class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+                  <option>Morning (09:00 - 12:00)</option>
+                  <option>Afternoon (12:00 - 17:00)</option>
+                  <option>Evening (17:00 - 20:00)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-calm-700 mb-2">Notes or Questions</label>
+              <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white resize-none" placeholder="Briefly describe what you would like to discuss..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-nurse-600 text-white py-4 rounded-xl font-medium hover:bg-nurse-700 transition-all shadow-lg shadow-nurse-500/30 hover:shadow-nurse-500/50">
+              Request Appointment
+            </button>
+
+            <p class="text-xs text-calm-400 text-center mt-2">
+              You will receive a confirmation email with session details within 48 hours.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 lg:py-28 bg-nurse-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <div class="text-nurse-600 font-semibold text-sm uppercase tracking-wider mb-3">Get in Touch</div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-calm-900 mb-6">Let's Discuss Your Healthcare Needs</h2>
+          <p class="text-calm-600 mb-8 leading-relaxed">
+            Whether you're looking for a dedicated nurse for your team, seeking mentorship, or exploring collaboration opportunities in healthcare improvement, I would love to hear from you.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <i class="fas fa-envelope text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Email</div>
+                <a href="mailto:sarah.mitchell@nhs.net" class="text-nurse-600 hover:text-nurse-700 transition-colors">sarah.mitchell@nhs.net</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <i class="fas fa-phone text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Phone</div>
+                <a href="tel:+447912345678" class="text-nurse-600 hover:text-nurse-700 transition-colors">+44 7912 345 678</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <i class="fas fa-map-marker-alt text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">Location</div>
+                <div class="text-calm-600">London, United Kingdom</div>
+                <div class="text-sm text-calm-400 mt-1">Open to relocation within UK</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <i class="fab fa-linkedin text-nurse-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-calm-900">LinkedIn</div>
+                <a href="#" class="text-nurse-600 hover:text-nurse-700 transition-colors">linkedin.com/in/sarahmitchell-rn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 lg:p-10 border border-calm-200 shadow-sm">
+          <form id="bookingForm" class="space-y-5">
+  <div class="grid sm:grid-cols-2 gap-5">
+    <div>
+      <label class="block text-sm font-medium text-calm-700 mb-2">First Name</label>
+      <input id="firstName" type="text" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="Jane">
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-calm-700 mb-2">Last Name</label>
+      <input id="lastName" type="text" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="Doe">
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-calm-700 mb-2">Email Address</label>
+    <input id="email" type="email" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white" placeholder="jane@example.com">
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-calm-700 mb-2">Session Type</label>
+    <select id="service" class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+      <option>Clinical Mentoring (60 min)</option>
+      <option>Health Advisory Call (30 min)</option>
+      <option>Career Consultation (45 min)</option>
+    </select>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-5">
+    <div>
+      <label class="block text-sm font-medium text-calm-700 mb-2">Preferred Date</label>
+      <input id="date" type="date" required class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-calm-700 mb-2">Preferred Time</label>
+      <select id="time" class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white text-calm-600">
+        <option>Morning (09:00 - 12:00)</option>
+        <option>Afternoon (12:00 - 17:00)</option>
+        <option>Evening (17:00 - 20:00)</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-calm-700 mb-2">Notes or Questions</label>
+    <textarea id="notes" rows="3" class="w-full px-4 py-3 rounded-xl border border-calm-200 focus:border-nurse-500 focus:ring-2 focus:ring-nurse-200 outline-none transition-all bg-white resize-none" placeholder="Briefly describe what you would like to discuss..."></textarea>
+  </div>
+
+  <button type="submit" class="w-full bg-nurse-600 text-white py-4 rounded-xl font-medium hover:bg-nurse-700 transition-all shadow-lg shadow-nurse-500/30 hover:shadow-nurse-500/50">
+    Request Appointment
+  </button>
+
+  <p class="text-xs text-calm-400 text-center mt-2">
+    You will receive a confirmation email with session details within 48 hours.
+  </p>
+</form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-calm-900 text-calm-300 py-12 border-t border-calm-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-nurse-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-heartbeat text-white text-sm"></i>
+          </div>
+          <span class="font-semibold text-white text-lg">Sarah Mitchell</span>
+        </div>
+        
+        <div class="flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-white transition-colors">About</a>
+          <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+          <a href="#qualifications" class="hover:text-white transition-colors">Qualifications</a>
+          <a href="#booking" class="hover:text-white transition-colors">Booking</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a href="#" class="w-10 h-10 bg-calm-800 rounded-lg flex items-center justify-center hover:bg-nurse-600 transition-colors">
+            <i class="fab fa-linkedin-in text-white"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-calm-800 rounded-lg flex items-center justify-center hover:bg-nurse-600 transition-colors">
+            <i class="fab fa-twitter text-white"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-calm-800 rounded-lg flex items-center justify-center hover:bg-nurse-600 transition-colors">
+            <i class="fas fa-envelope text-white"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-calm-800 text-center text-sm text-calm-500">
+        <p> Registered Nurse Portfolio. NMC Registered. Designed with care.</p>
+      </div>
+    </div>
+  </footer>
+<script src="nurse.js"></script>
+</body>
+</html>
