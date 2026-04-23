@@ -11,49 +11,26 @@ const form = document.getElementById("bookingForm");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  console.log("Form submitted");
+
   const data = {
-    first_name: document.getElementById("firstName").value.trim(),
-    last_name: document.getElementById("lastName").value.trim(),
-    email: document.getElementById("email").value.trim(),
+    first_name: document.getElementById("firstName").value,
+    last_name: document.getElementById("lastName").value,
+    email: document.getElementById("email").value,
     service: document.getElementById("service").value,
     date: document.getElementById("date").value,
     time: document.getElementById("time").value,
-    notes: document.getElementById("notes").value.trim(),
+    notes: document.getElementById("notes").value,
   };
 
-  // Basic validation
-  if (!data.first_name || !data.last_name || !data.email || !data.date) {
-    alert("Please fill all required fields");
-    return;
-  }
+  console.log("DATA:", data);
 
-  try {
-    // Check if slot already exists
-    const { data: existing, error: checkError } = await supabase
-      .from("appointments")
-      .select("*")
-      .eq("date", data.date)
-      .eq("time", data.time);
+  const { data: result, error } = await supabase
+    .from("appointments")
+    .insert([data]);
 
-    if (checkError) throw checkError;
-
-    if (existing.length > 0) {
-      alert("This time slot is already booked. Please choose another.");
-      return;
-    }
-
-    // Insert booking
-    const { error } = await supabase
-      .from("appointments")
-      .insert([data]);
-
-    if (error) throw error;
-
-    alert("Booking request sent successfully. You will receive confirmation within 48 hours.");
-    form.reset();
-
-  } catch (err) {
-    console.error(err);
-    alert("Something went wrong. Please try again.");
-  }
+  console.log("RESULT:", result);
+  console.log("ERROR:", error);
 });
