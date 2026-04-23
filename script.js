@@ -8,9 +8,6 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 const form = document.getElementById("bookingForm");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
   form.addEventListener("submit", async (e) => {
   e.preventDefault();
   console.log("Form submitted");
